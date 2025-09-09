@@ -34,14 +34,17 @@ npm run test:qa:headless
 
 
 Structure du projet
+Pour garder le code organisé et maintenable, j'ai utilisé le **Page Object Model (POM)**. 
+
+
 ```bash
 qa/                                # Documentation et suivi QA
 ├── docs/                         
 │   ├── test-plan.feature          # Plan de test en BDD (scénarios Gherkin)
 │   ├── manual-execution.xlsx      # Résultats d’exécution manuelle (PASS/FAIL)
 │   └── bug-reports/               # Rapports de bugs avec captures et détails
-│       ├── bug-001-login.png
-│       └── bug-002-progressbar.md
+│       
+│     
 
 cypress/                           # Racine des tests E2E automatisés
 ├── e2e/                           # Dossier principal des tests
@@ -72,6 +75,18 @@ cypress/                           # Racine des tests E2E automatisés
 cypress.config.js                  # Configuration Cypress (baseUrl, reporter, etc.)
 
  ```
+
+## Structure des fichiers de tests
+
+Dans ce projet, j'ai choisi de regrouper tous les scénarios BDD dans **un seul fichier `.feature`**.  
+
+La raison principale est que l'application **Todo List est relativement simple et peu volumineuse**, ce qui ne nécessite pas de séparation en plusieurs fichiers pour gérer différents modules ou fonctionnalités.  
+
+Cette approche permet :
+- Une meilleure lisibilité pour un projet de petite taille.
+- Une maintenance facile sans multiplication de fichiers.
+- Une exécution rapide des tests.
+
 Rapports
 Évidences manuelles (captures & vidéos) :
 qa/docs/bug_reports/pictures/  de chaque bug .
