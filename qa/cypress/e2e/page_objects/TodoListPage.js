@@ -91,9 +91,12 @@ class TodoListPage extends BasePage {
   }
 
   deleteTask(task) {
-    cy.contains(locators.taskItem, task)
-    .parents(locators.todoListCards).get(locators.deleteButton).click();
-  }
+  cy.contains(locators.taskItem, task)
+    .parents(locators.todoListCards)
+    .find(locators.deleteButton)   // au lieu de .get()
+    .click();
+}
+  
 
   clearAllTasks() {
     cy.get(locators.clearAllButton).click();

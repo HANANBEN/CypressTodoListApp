@@ -19,9 +19,9 @@ Vérifier que les fonctionnalités principales de l'application fonctionnent cor
 
 ## Environnements de test
 
-- **Navigateurs Web** : Chrome 139, microsoft edge 
-- **Mobiles** : Android 14 (Chrome), Samsung Galaxy S8+ , iPad Air 
-- **Tablette** : iPad Pro 11" (Safari)  
+- **Navigateurs Web** : Chrome, microsoft edge 
+- **Mobiles** : iPhone 14 Pro Max, Samsung Galaxy S8+ 
+- **Tablette** : iPad Air 
 - **Résolutions testées** : 1920×1080, 1366×768, 768×1024, 375×667  
 
 ---
@@ -66,13 +66,13 @@ Scenario Outline: Empêcher l’ajout d’une tâche invalide
   When je saisis "<entrée>" dans le champ de saisie
   And j'appuie sur "Enter"
   Then aucune tâche n'est ajoutée
-  And un message d'erreur ou une indication visuelle apparaît
+  And la liste ne doit pas être affecté
 
 Examples:
   | entrée                   |
   | (vide)                  |
   | (espaces uniquement)    |
-  | plus de 255 caractères  |
+  | une longue tâche  |
 
 
   # --- Gestion des tâches ---

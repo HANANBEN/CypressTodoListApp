@@ -6,6 +6,7 @@ export default {
   progressFraction: 'span.text-sm.text-muted-foreground',
   progressPercentage: '.mt-2',
   checkbox: '[data-slot="checkbox"]',
-  deleteButton: '.space-y-3 > .text-card-foreground > .flex > .inline-flex',
+  deleteButton : 'button[data-slot="button"]',
+
   hintCtrlN: '[data-cy="hint-ctrlN"]'
 };

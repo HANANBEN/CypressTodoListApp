@@ -14,7 +14,7 @@ describe('Todo List - Barre de progression', () => {
 
   it('Mettre à jour la progression après suppression', () => {
     todoListPage.deleteTask('B');
-    todoListPage.verifyProgress(1,1);
+    todoListPage.verifyProgress(0,1);
   });
 
 });

@@ -13,7 +13,8 @@ reporter: "cypress-mochawesome-reporter",
   videosFolder: "qa/cypress/reports/videos",           
   video: true, 
   screenshotOnRunFailure: true,
- 
+ embeddedScreenshots: false, // intègre les screenshots directement dans le rapport
+  inlineAssets: false, 
                                      
   e2e: {
     baseUrl: "http://localhost:3000",

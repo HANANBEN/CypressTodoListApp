@@ -6,7 +6,9 @@
     "build": "next build",
     "dev": "next dev",
     "lint": "next lint",
-    "start": "next start"
+    "start": "next start", 
+    "test:qa:headless": "cypress run --config-file qa/cypress.config.js --headless",
+    "test:qa:headed": "cypress run --config-file qa/cypress.config.js --headed"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
