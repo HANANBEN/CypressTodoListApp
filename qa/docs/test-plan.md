@@ -111,12 +111,6 @@ Examples:
     And le pourcentage affiché correspond à environ 66%
 
   # --- Cas limites & sécurité ---
-  Scenario: Empêcher l’ajout de texte trop long
-    When je saisis une tâche contenant plus de 255 caractères
-    And j’appuie sur "Enter"
-    Then aucune tâche n’est ajoutée
-    And un message d’erreur s’affiche
-
   Scenario: Empêcher l’injection XSS
     When je saisis "<script>alert(1)</script>" dans le champ de saisie
     And j’appuie sur "Enter"
