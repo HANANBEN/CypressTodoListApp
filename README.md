@@ -94,10 +94,10 @@ qa/docs/bug_reports/pictures/  de chaque bug .
 Rapports de Bugs (avec références vers les captures/vidéos) :
 qa/docs/bug-reports/
 
-Rapports Mochawesome (HTML et JSON) : qa/cypress/reports/mocha_reports/
+Rapports Mochawesome (HTML) : qa/cypress/reports/
 
-Captures d’écran : qa/cypress/screenshots/
+Captures d’écran : qa/cypress/reports/screenshots
 
-Vidéos : qa/cypress/videos/
+Vidéos : qa/cypress/report/videos
 
 Les rapports sont générés automatiquement après l’exécution des tests Cypress en mode headless ou headed.

@@ -4,16 +4,18 @@ const { defineConfig } = require("cypress");
 module.exports = defineConfig({
 reporter: "cypress-mochawesome-reporter",
   reporterOptions: {
-    reportDir: "qa/cypress/reports/mocha_reports",
-    overwrite: false,
-    html: true,
-    json: true,
+   reportDir: "qa/cypress/reports",
+  overwrite: false,
+  html: true,
+  json: true,
+  charts: true,
+  reportTitle: "TodoList Test Report",
+  embeddedScreenshots: true,
   },
   screenshotsFolder: "qa/cypress/reports/screenshots", 
   videosFolder: "qa/cypress/reports/videos",           
   video: true, 
   screenshotOnRunFailure: true,
- embeddedScreenshots: false, // intègre les screenshots directement dans le rapport
   inlineAssets: false, 
                                      
   e2e: {
