@@ -98,6 +98,6 @@ Rapports Mochawesome (HTML) : qa/cypress/reports/
 
 Captures d’écran : qa/cypress/reports/screenshots
 
-Vidéos : qa/cypress/report/videos
+Vidéos : qa/cypress/reports/videos
 
 Les rapports sont générés automatiquement après l’exécution des tests Cypress en mode headless ou headed.
