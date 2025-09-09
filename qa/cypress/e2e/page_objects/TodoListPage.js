@@ -13,7 +13,7 @@ class TodoListPage extends BasePage {
   }
 
   typeEmptyTask() {
-    cy.get(locators.input).focus().type('{enter}');
+   this.pressEnter();
   }
 
   pressEnter() {
@@ -47,7 +47,10 @@ class TodoListPage extends BasePage {
       .should('have.css', 'text-decoration')
       .and('contain', 'line-through');
     
-      cy.contains(locators.todoListCards , '✓ Terminé' ).should('be.visible');;
+      cy.contains(locators.taskItem, task)
+  .parents(locators.todoListCards)
+  .contains('✓ Terminé')
+  .should('be.visible');
   }
 
    completeTask(task) {
@@ -71,12 +74,11 @@ class TodoListPage extends BasePage {
   }
 
   checkTaskOrder(expectedOrder) {
-    cy.get(locators.taskItem).then(($tasks) => {
-      const texts = [...$tasks].map(el => el.innerText.trim());
-      expect(texts).to.deep.equal(expectedOrder);
-    });
-  }
-
+  cy.get(locators.taskItem).should(($tasks) => {
+    const texts = [...$tasks].map(el => el.innerText.trim());
+    expect(texts).to.deep.equal(expectedOrder);
+  });
+}
   checkTaskSanitized(malicious) {
     cy.contains(locators.taskItem, malicious).should('not.exist');
   }
@@ -112,26 +114,25 @@ class TodoListPage extends BasePage {
   //     {force : true}       // get target card
   // );
   // }
-  dragAndDrop(sourceTask, targetTask) {
-  const dataTransfer = new DataTransfer();
+   dragAndDrop(sourceTask, targetTask) {
+    const dataTransfer = new DataTransfer();
 
-  // Find the source card
-  cy.contains(locators.taskItem, sourceTask)
-    .closest(locators.todoListCards)
-    .trigger('mousedown', { which: 1, button: 0, force: true })
-    .trigger('dragstart', { dataTransfer, force: true });
+    cy.contains(locators.taskItem, sourceTask)
+      .closest(locators.todoListCards)
+      .trigger('mousedown', { which: 1, button: 0, force: true })
+      .trigger('dragstart', { dataTransfer, force: true });
 
-  // Find the target card
-  cy.contains(locators.taskItem, targetTask)
-    .closest(locators.todoListCards)
-    .trigger('dragover', { dataTransfer, force: true })
-    .trigger('drop', { dataTransfer, force: true });
+    cy.wait(100); // small wait to ensure drag events are registered
 
-  // End the drag
-  cy.contains(locators.taskItem, sourceTask)
-    .closest(locators.todoListCards)
-    .trigger('dragend', { dataTransfer, force: true });
-}
+    cy.contains(locators.taskItem, targetTask)
+      .closest(locators.todoListCards)
+      .trigger('dragover', { dataTransfer, force: true })
+      .trigger('drop', { dataTransfer, force: true });
+
+    cy.contains(locators.taskItem, sourceTask)
+      .closest(locators.todoListCards)
+      .trigger('dragend', { dataTransfer, force: true });
+  }
 
   // --- Progression ---
   verifyProgress(completedTasks, totalTasks) {
@@ -145,12 +146,17 @@ class TodoListPage extends BasePage {
     cy.get('body').type('{ctrl}n');
   }
 
-  checkNewInputVisible() {
+  checkNewInputFocused() {
     cy.get(locators.input).should('be.visible').and('have.focus');
+  }
+  checkNewInputVisible() {
+    cy.get(locators.input).should('be.visible');
   }
 
   verifyCtrlNHintNotVisible() {
-    cy.get(locators.hintCtrlN).should('not.exist');
+    cy.get(locators.input)
+    .should('have.attr', 'placeholder')
+    .and('not.contain', 'Ctrl+N');
   }
 
 }

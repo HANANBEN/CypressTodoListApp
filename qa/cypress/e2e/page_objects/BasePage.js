@@ -1,14 +1,22 @@
 class BasePage {
-   click(element) {
-    cy.get(element).click();
+  click(selector) {
+    cy.get(selector).click();
   }
 
-  type(element, text) {
-    cy.get(element).clear().type(text);
+  type(selector, text) {
+    cy.get(selector).clear().type(text);
   }
 
-  isVisible(element) {
-    cy.get(element).should('be.visible');
+  isVisible(selector) {
+    cy.get(selector).should('be.visible');
+  }
+
+  shouldContain(selector, text) {
+    cy.get(selector).should('contain.text', text);
+  }
+
+  shouldNotExist(selector) {
+    cy.get(selector).should('not.exist');
   }
 }
 

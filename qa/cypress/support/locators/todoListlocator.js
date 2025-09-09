@@ -8,5 +8,5 @@ export default {
   checkbox: '[data-slot="checkbox"]',
   deleteButton : 'button[data-slot="button"]',
 
-  hintCtrlN: '[data-cy="hint-ctrlN"]'
+
 };

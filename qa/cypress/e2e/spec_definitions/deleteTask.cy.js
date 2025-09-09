@@ -1,14 +1,15 @@
 import todoListPage from '../page_objects/TodoListPage';
+import tasks from '../../fixtures/tasks.json';
 
 describe('Todo List - Suppression de tâches', () => {
 
   beforeEach(() => {
-    todoListPage.addTask('Aller au sport');
+    todoListPage.addTask(tasks.validTask[2]);
   });
 
   it('Supprimer une tâche individuelle', () => {
-    todoListPage.deleteTask('Aller au sport');
-    todoListPage.checkTaskNotExists('Aller au sport');
+    todoListPage.deleteTask(tasks.validTask[2]);
+    todoListPage.checkTaskNotExists(tasks.validTask[2]);
   });
 
 //   it('Supprimer toutes ;les tâches', () => {

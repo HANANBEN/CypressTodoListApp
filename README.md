@@ -45,7 +45,7 @@ qa/                                # Documentation et suivi QA
 
 cypress/                           # Racine des tests E2E automatisés
 ├── e2e/                           # Dossier principal des tests
-│   ├── features/                  # Fichiers .feature si Cucumber est utilisé
+│   ├── features/                  # Fichiers .feature ( NO Cucumber est utilisé)
 │   │   └── todoList.feature
 │   ├── page_objects/              # Pages du POM
 │   │   ├── BasePage.js            # Classe de base : méthodes communes (openPage, waitForElement)
