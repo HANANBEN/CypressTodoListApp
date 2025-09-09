@@ -60,7 +60,7 @@ cypress/                           # Racine des tests E2E automatisés
 │   └── tasks.json
 │
 ├── reports/                       # Rapports générés automatiquement
-│   ├── mocha_reports/             # Rapports Mochawesome (HTML + JSON)
+│   ├   index.html        # Rapports Mochawesome (HTML )
 │   ├── screenshots/               # Screenshots auto-générés en cas d’échec
 │   └── videos/                    # Vidéos d’exécution des tests
 │
